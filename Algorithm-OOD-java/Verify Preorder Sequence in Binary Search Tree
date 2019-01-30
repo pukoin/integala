@@ -1,0 +1,44 @@
+Verify Preorder Sequence in Binary Search Tree
+
+public class Solution {
+    public boolean verifyPreorder(int[] preorder) {
+        if (preorder == null || preorder.length <= 1) {
+            return true;
+        }
+         
+        int i = -1;
+        int max = Integer.MIN_VALUE;
+         
+        for (int num : preorder) {
+            if (num < max) {
+                return false;
+            }
+             
+            while (i >= 0 && num > preorder[i]) {
+                max = preorder[i];
+                i--;
+            }
+             
+            i++;
+            preorder[i] = num;
+        }
+         
+        return true;
+    }
+}
+
+
+// verify the inorder sequence 
+
+public boolean IsValidPostOrderBst(int[] nums){
+        int i = nums.length;
+        int max = Integer.MAX_VALUE;
+        for (int j = nums.length - 1; j >= 0; j--)
+        {
+            if (nums[j] > max) return false;
+            while (i <= nums.length - 1 && nums[j] > nums[i])
+                max = nums[i++];
+            nums[--i] = nums[j];
+        }
+        return true;
+}
