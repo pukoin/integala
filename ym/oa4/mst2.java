@@ -43,7 +43,7 @@ class Solution {
         }
     }
 
-    if (mst.size() + existingRoadCount < numTotalAvailableCitiesil - 1)
+    if (mst.size() + existingRoadCount < numTotalAvailableCities - 1)
         return -1;
 
     int sum = 0;
@@ -73,7 +73,7 @@ class Solution {
        public UnionFind(int size) {
            this.ids = new int[size + 1];
            for (int i = 0; i < size + 1; i++) {
-               this.ids[i] = il
+               this.ids[i] = i;
            }
        }
        public int root(int i ) {
